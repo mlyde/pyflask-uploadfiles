@@ -20,7 +20,7 @@
 					<input class="fileInput filedirectory" id="fileInput filedirectory" type="file" name="file" onchange=inputFileListDir() style="display:none;" webkitdirectory>
 				</div>
 				<div>
-					<input class="button" type="button" onclick=emptyFiles() value="清空">
+					<input class="button" type="button" onclick=empty() value="清空">
 					<input class="button upload" type="button" onclick="$('.filedirectory').click()" value="选择文件夹">
 					<!-- <input class="button" type="submit" value="上传"> -->
 					<input class="button upload" type="button" onclick=submitFiles() value="上传">
@@ -188,6 +188,11 @@
 
 		$(".list")[0].appendChild(progress);
 		$(".list")[0].appendChild(document.createElement("hr"));
+	}
+
+	function empty(){
+		$('.progressBar').attr('value', 0).text(0 + '%');
+		emptyFiles();
 	}
 
 	// 清空input传入的文件列表
