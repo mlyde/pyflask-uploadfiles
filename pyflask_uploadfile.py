@@ -135,5 +135,7 @@ def showFolder(filename = None):
 
 if __name__ == '__main__':
 	print("cwd:", os.getcwd())
+	if not os.path.exists("./floder"):
+		os.mkdir("./floder")
 	# app.run(host='0.0.0.0', port=80, debug=True)
 	app.run(host='0.0.0.0', port=80, debug=False)
