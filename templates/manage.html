@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<header>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>File Manager</title>
+</header>
+<body>
+	<a class="todownload" href="/">upload</a>
+	<h1>File Manager</h1>
+	<hr>
+	<!-- <div>{{ files_list | length }}files or directory</div><hr> -->
+	{% for file in files_list %}
+		{% if file[-1] %}
+		<!-- 文件 -->
+		<div><a href="{{url_for('download', filename=file[0])}}">{{ file[1] }} - - - - {{ file[-1] }}</a></div>
+		{% else %}
+		<!-- 文件夹 -->
+		<div><a href="{{url_for('download', filename=file[0])}}/">{{ file[1] }} /</a></div>
+		{% endif %}
+	{% endfor %}
+	<hr>
+</body>
+<style>
+	h1{
+    	text-align: center;
+	}
+	a.todownload{
+		color: grey;
+		text-decoration: none;
+		font-size: 20px;
+		position: fixed;
+		right: 20px;
+		top: 20px;
+		margin: 0;
+	}
+	a.todownload:hover{
+		color: grey;
+	}
+	a{
+		display: block;
+		margin: 10px;
+		text-decoration: none;
+	}
+	a:hover{
+		color: red;
+	}
+</style>
+</html>
